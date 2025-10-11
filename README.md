@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Website Using Github Pages
 Make a simple HTML website and publish it using Github Pages.  
 View example: https://zirafa.github.io/simple-website-template/
@@ -44,3 +45,7 @@ Web technology changes rapidly, and it easy to get lost in the hype. Learning th
 
 
 
+=======
+# geomod-spline-morphing
+Simple website to host information about a Geometric modeling project
+>>>>>>> 46b043473abb7a1e4d95fa0b64a05fe3c13de755
