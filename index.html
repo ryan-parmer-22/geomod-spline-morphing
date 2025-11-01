@@ -34,7 +34,7 @@
       <ul class="main-menu">
         <li><a href="#home">Home</a></li>
         <li><a href="#proposal">Proposal</a></li>
-        <li><a href="#demo">Demo</a></li>
+        <li><a href="#progress">Progress</a></li>
         <li><a href="#citations">Citations</a></li>
       </ul>                 
     </header>
@@ -96,14 +96,47 @@ Distributions (2003)</a></li>
             
           </div>
           
-          <div id="demo" class="content-region hide">
-            <h2>Demo</h2>
-            <p>hello</p>
+          <div id="progress" class="content-region hide">
+            <h2><u>Update 1</u>: 10/31/2025</h2>
+            <p>
+              Overall, progress is lacking. Really, I had spend too much time these past few weeks reading papers and books that had very
+              little to do with this project I had selected. For instance, I've been reading up on non-linear dynamical systems (chaos theory),
+              geodesics, and conformal mapping. Despite this, I have (at the very least) not slacked on my reading tailored to the project. More
+              details will be provided in my actual literature review (located under the "Citations" tab), but as an overview of what to expect
+              from that: I have gathered a series of 5-6 core papers directly related to my topic of morphing curves, and about a dozen other 
+              papers that are related or explore applications of the methods I will be exploring in this project.
+            </p>
+            <p>
+              The literature surrounding this topic was a fair bit more barren that I had originally anticipated. Although my original idea was
+              to implement various techniques and do a kind of comparison of such, this goal may not be so achieveable. The main differences
+              in techniques stem down to how is the curve expressed (e.g. spline, polygon, closed or open curve, etc.) and how data should flow.
+              What properties do we want in the interpolatory frames and does the information that describe the curve before and after the morph
+              match up well. It is not the case, like I had originally anticipated, that there are multiple techniques to achieve various properties
+              during the morphing process, but due to the constraints of a curves definitions, there seems to be natural techniques given various
+              scenarios. Due to these complications regarding the ambiguity of the process and my goals hencforth, I will provide a new, detailed,
+              restructuring of my goals for this project.
+            </p>
+
+            <h3>Updated Goals</h3>
+            <p><strong>Update 2 | 11/24/2025</strong></p>
+              <ul>
+                <li>Animated Spline Morphing applying simple methods between 2 B-splines with same control points/know vectors (by next week)</li>
+                <li>Go beyond linear interpolation of control points and work on implementing method that preserves C<sup>1</sup> continuity</li>
+                <li>Expand methods to NURBS and look into implementing another (older) technique for comparison, The "Mass Distributions" paper</li>
+              </ul>
+            <p><strong>Final Report | 12/16/2025</strong></p>
+              <ul>
+                <li>Expand demo to closed curves to morph topologically similar curves</li>
+                <li>Develop recursive method to insert control points and modify knot vector to morph B-splines of different sizes</li>
+                <li>Optimizations and stress testing with self-intersecting geometry and other extreme cases</li>
+              </ul>
+
+            <h2><u>Update 2</u>: 11/24/2025</h2>
           </div>
 
           <div id="citations" class="content-region hide">
-            <h2>Citations</h2>
-            
+            <h2>Literature Review</h2>
+            <embed src="resources/Untitled document.pdf" width="500" height="375" type="application/pdf">
           </div>
           
         </div>
