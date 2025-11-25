@@ -118,13 +118,13 @@ Distributions (2003)</a></li>
             </p>
 
             <h3>Updated Goals</h3>
-            <p><strong>Update 2 | 11/24/2025</strong></p>
+            <p><strong>By Update 2 | 11/24/2025</strong></p>
               <ul>
                 <li>Animated Spline Morphing applying simple methods between 2 B-splines with same control points/know vectors (by next week)</li>
                 <li>Go beyond linear interpolation of control points and work on implementing method that preserves C<sup>1</sup> continuity</li>
                 <li>Expand methods to NURBS and look into implementing another (older) technique for comparison, The "Mass Distributions" paper</li>
               </ul>
-            <p><strong>Final Report | 12/16/2025</strong></p>
+            <p><strong>By Final Report | 12/16/2025</strong></p>
               <ul>
                 <li>Expand demo to closed curves to morph topologically similar curves</li>
                 <li>Develop recursive method to insert control points and modify knot vector to morph B-splines of different sizes</li>
@@ -132,6 +132,56 @@ Distributions (2003)</a></li>
               </ul>
 
             <h2><u>Update 2</u>: 11/24/2025</h2>
+
+            <p>
+              Unlike last report, I actually have some working code now (to some degree). Overall, I am still behind where I though I should be at this point
+              I had accomplished the simple morph without regard for anything above C<sup>0</sup> continuity, but I had encountered some slightly 
+              unexpected difficulties that other projects have made me aware of. When working on spline surfaces, I realized my approach was na&iuml;ve
+              and did not provide nice ways to perform transformations on the control points, weights, or spline as a whole. To rectify this issue,
+              while maintaining good quality renders in real time, I went about the extensive process of designing a new data structure to host my
+              splines so that they are adaptive to change and can morph them as I see fit. This goal ate up most of the time I had reserved for other
+              aspects of the project. Realistically, I should have just dedicated more time to the project, but my concurrent work in other classes drew
+              more of my attention during this period. Luckily though, these other distractions will be completed by December 1st, leaving the majority
+              of my time to catch up in this project. 
+            </p>
+              
+            <p>
+              My other hangup during this period was on the difficulty of NURBS. I decided to switch my implementation order and after a successful
+              simple morph I felt it was important to properly be able to disply NURBS and went about tackling this issue. Long story short, my code is 
+              full of bugs (hahaha). The way I went about implementing NURBS is by first starting with some of my calculations from my spline surface
+              code. The spline class that I have built handles keeping track of and updating as it sees fit a discretized list of points that approximate
+              the splines arc. The class also has draw methods to draw not only this arc, but also optionally the control points and polygon. The data
+              structure maintains a list of control points, each of which has a point and a weight, a knot vector, a degree value, resolution and the 
+              approximation as specified. As of now the resolution of the approximation is chosen and passed into the structure during the render 
+              process. I plan to amend this so that the line is adaptable to zoom, and optimized to render only what is in the viewport, but I have
+              not had any slowdowns yet, though I fear this might be essential when I move over to rendering surfaces. The reason for the spline to maintain
+              its own approximation of itself is for optimization needs. I only want the spline to be updating its position when necessary. I have also
+              added some nice quality of life features now that allow me to set up the scenes that I want to display like being able to pass matrices
+              into the spline datastruct to perform a transformation on all the control points, and another optimization plus, I have even used it on
+              the spline approximation when updating the surface instead of recalling a method to update the surface relative to the control points. 
+              I belive this is better (not sure how numerically stable, but it should be fine). This method may be slower than recalcuating 
+              spline positions using deBoore's algorithm, but only in low-degree spline situations.              
+            </p>
+
+            <p>
+              In conclusion, despite more lackluster progress, I now have a strong foundation with most of the boilerplate out of the way
+              to really begin work on the crux of my problem. Next steps will include fixing my NURBS implementation, implementing some 
+              of the methods for morphing found during my literature review, and a comparison and analysis of these techniques. If time permits,
+              I really would like to expand these techniqes to 3D, but I can see several potential challenges with this process now. The biggest 
+              one is the fact that though it would be similar to what I have now, I would actually have to design a new data struct specifically to 
+              handle the double-parameterization. Generalizing what I have to both splines and spline surfaces seems problematic. 
+            </p>
+
+            <h3>Updated Goals</h3>
+            <p><strong>By Final Report | 12/16/2025</strong></p>
+              <ul>
+                <li>Debug and fix implementation of NURBS and verify/optimize corect spline behavior</li>
+                <li>Go beyond linear interpolation of control points and work on implementing method that preserves C<sup>1</sup> continuity</li>
+                <li>Implement parts of the "Mass Distributions" paper for NURBS splines</li>
+                <li>Expand demo to closed curves to morph topologically similar curves</li>
+                <li>Develop recursive method to insert control points and modify knot vector to morph B-splines of different sizes</li>
+                <li>Optimizations and stress testing with self-intersecting geometry and other extreme cases</li>
+              </ul>
           </div>
 
           <div id="citations" class="content-region hide">
