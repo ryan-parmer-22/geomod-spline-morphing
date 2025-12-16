@@ -137,5 +137,7 @@ ul.main-menu li a.active {
   display:block;
 }
 
-
+img {
+  margin: 30px auto;
+}
 
